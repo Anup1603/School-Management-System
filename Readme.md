@@ -1,6 +1,6 @@
 # School Management System
 
-A comprehensive web-based application designed to streamline and automate the management of school-related activities, including student, teacher, and staff management. The system facilitates communication, record-keeping, and administrative processes for schools.
+A comprehensive web-based application designed to streamline and automate the management of school-related activities, including admin, student, teacher, and there relative fields. The system facilitates communication, record-keeping, and administrative processes for schools.
 
 ---
 
@@ -19,7 +19,7 @@ A comprehensive web-based application designed to streamline and automate the ma
 
 ## Project Overview
 
-The School Management System is built to manage and organize various aspects of school administration effectively. It provides functionalities for handling students, teachers, staff, classes, and more in a user-friendly manner.
+The School Management System is built to manage and organize various aspects of school administration effectively. It provides functionalities for handling admin, students, teachers, classes, notice, complain, subjects, and more in a user-friendly manner.
 
 The goal is to reduce the workload of school administrators by providing a centralized platform to manage data, track progress, and generate reports.
 
@@ -27,13 +27,14 @@ The goal is to reduce the workload of school administrators by providing a centr
 
 ## Features
 
+- **Admin Management**: Manage and create all the fields like Teacher, Student, Subject, Class, Notice and Complain. Also able to create the credential of Teacher's and student's.
 - **User Authentication**: Secure login and registration for administrators, teachers, and students.
 - **Student Management**: Add, update, and view student details.
-- **Teacher Management**: Manage teacher profiles, schedules, and classes.
+- **Teacher Management**: Manage teacher profiles, schedules, classes, sutudent and subject.
 - **Class Management**: Assign students and teachers to classes.
-- **Attendance Tracking**: Monitor and record attendance for students and staff.
+- **Attendance Tracking**: Monitor and record attendance for students and teacher.
 - **Grade Management**: Input and calculate grades and performance metrics.
-- **Notifications and Alerts**: Send updates to students and staff.
+- **Notifications and Alerts**: Send updates to students and teacher.
 - **Dashboard**: Interactive dashboard for administrators with key metrics.
 - **Reports**: Generate detailed reports for attendance, grades, and activities.
 
@@ -55,7 +56,7 @@ The goal is to reduce the workload of school administrators by providing a centr
 
 ### Prerequisites
 
-- Node.js and npm installed (>=16.x)
+- Node.js and npm installed (>=18.x)
 - MongoDB database setup (>=6.x)
 - Git installed
 
@@ -64,7 +65,7 @@ The goal is to reduce the workload of school administrators by providing a centr
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/school-management-system.git
+   git clone https://github.com/Anup1603/School-Management-System.git
    ```
 
 2. Navigate to the project directory:
