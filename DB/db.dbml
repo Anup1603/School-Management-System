@@ -1,0 +1,80 @@
+    Table admin {
+        admin_id INT [pk]
+        name VARCHAR(100)
+        email VARCHAR(100) [unique]
+        password VARCHAR(255)
+        role VARCHAR(50) [default: "Admin"]
+        schoolName VARCHAR(100) [unique]
+    }
+
+    Table student {
+        student_id INT [pk]
+        name VARCHAR(100)
+        rollNum INT
+        password VARCHAR(255)
+        studentClassName_id INT [ref: > studentClass.studentClass_id]
+        admin_ref_id INT [ref: > admin.admin_id]
+        role VARCHAR(50) [default: "Student"]
+    }
+
+    Table teacher {
+        teacher_id INT [pk]
+        name VARCHAR(100)
+        email VARCHAR(100) [unique]
+        password VARCHAR(255)
+        role VARCHAR(50) [default: "Teacher"]
+        admin_ref_id INT [ref: > admin.admin_id]
+        teachSubject_id INT [ref: > subject.subject_id]
+        teachstudentClass_id INT [ref: > studentClass.studentClass_id]
+    }
+
+    Table subject {
+        subject_id INT [pk]
+        subName VARCHAR(100)
+        subCode VARCHAR(50)
+        sessions VARCHAR(50)
+        studentClassName_id INT [ref: > studentClass.studentClass_id]
+        admin_ref_id INT [ref: > admin.admin_id]
+        teacher_id INT [ref: > teacher.teacher_id]
+    }
+
+    Table studentClass {
+        studentClass_id INT [pk]
+        studentClassName VARCHAR(100)
+        admin_ref_id INT [ref: > admin.admin_id]
+    }
+
+    Table notice {
+        notice_id INT [pk]
+        title VARCHAR(100)
+        details TEXT
+        date DATE
+        admin_ref_id INT [ref: > admin.admin_id]
+    }
+
+    Table complain {
+        complain_id INT [pk]
+        user_id INT [ref: > student.student_id]
+        date DATE
+        complaint TEXT
+        admin_ref_id INT [ref: > admin.admin_id]
+    }
+
+    // Relationships
+    Ref: admin.admin_id > student.admin_ref_id
+    Ref: admin.admin_id > teacher.admin_ref_id
+    Ref: admin.admin_id > subject.admin_ref_id
+    Ref: admin.admin_id > studentClass.admin_ref_id
+    Ref: admin.admin_id > notice.admin_ref_id
+    Ref: admin.admin_id > complain.admin_ref_id
+
+
+    Ref: student.studentClassName_id > studentClass.studentClass_id
+
+
+    Ref: teacher.teachSubject_id > subject.subject_id
+    Ref: teacher.teachstudentClass_id > studentClass.studentClass_id
+
+
+    Ref: subject.studentClassName_id > studentClass.studentClass_id
+    Ref: subject.teacher_id > teacher.teacher_id
